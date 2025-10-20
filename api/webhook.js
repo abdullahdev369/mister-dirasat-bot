@@ -29,7 +29,7 @@ app.post("/api/webhook", async (req, res) => {
   `;
 
   try {
-    const model = genAI.getGenerativeModel({ model: "text-bison-001" }); // ✨ غيرنا الموديل
+    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
     const result = await model.generateContent(prompt);
     console.log("Gemini response:", result);
 
