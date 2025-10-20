@@ -1,6 +1,18 @@
+import express from "express";
+import { GoogleGenerativeAI } from "@google/generative-ai";
+import TelegramBot from "node-telegram-bot-api";
+
+const app = express();
+app.use(express.json());
+
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+
+// هنا من غير startPolling
+const bot = new TelegramBot(process.env.BOT_TOKEN, { webHook: true });
+
 app.post("/api/webhook", async (req, res) => {
   const message = req.body.message;
-  console.log("Incoming message:", message); // 🌟 log الرسالة
+  console.log("Incoming message:", message);
 
   if (!message || !message.text) return res.sendStatus(200);
 
@@ -21,7 +33,7 @@ app.post("/api/webhook", async (req, res) => {
   try {
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
     const result = await model.generateContent(prompt);
-    console.log("Gemini response:", result); // 🌟 log رد Gemini
+    console.log("Gemini response:", result);
 
     const reply = result.response.text();
     await bot.sendMessage(chatId, reply);
@@ -32,3 +44,8 @@ app.post("/api/webhook", async (req, res) => {
 
   res.sendStatus(200);
 });
+
+// صيغة Vercel Serverless function
+export default function handler(req, res) {
+  return app(req, res);
+}
