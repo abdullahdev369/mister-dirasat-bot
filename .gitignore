@@ -1,0 +1,23 @@
+# بيئة التشغيل
+node_modules/
+.env
+.env.local
+.DS_Store
+
+# ملفات البناء
+.vercel/
+.next/
+dist/
+build/
+
+# ملفات النظام
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ملفات IDE
+.vscode/
+.idea/
+*.swp
+
+.vercel

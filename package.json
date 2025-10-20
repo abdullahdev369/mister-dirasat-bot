@@ -1,0 +1,18 @@
+{
+  "name": "mister-dirasat-bot",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.4.0",
+    "express": "^4.19.0",
+    "next": "^14.2.33",
+    "node-telegram-bot-api": "^0.61.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}
