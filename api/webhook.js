@@ -6,8 +6,6 @@ const app = express();
 app.use(express.json());
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-
-// هنا من غير startPolling
 const bot = new TelegramBot(process.env.BOT_TOKEN, { webHook: true });
 
 app.post("/api/webhook", async (req, res) => {
@@ -31,7 +29,7 @@ app.post("/api/webhook", async (req, res) => {
   `;
 
   try {
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const model = genAI.getGenerativeModel({ model: "text-bison-001" }); // ✨ غيرنا الموديل
     const result = await model.generateContent(prompt);
     console.log("Gemini response:", result);
 
@@ -45,7 +43,7 @@ app.post("/api/webhook", async (req, res) => {
   res.sendStatus(200);
 });
 
-// صيغة Vercel Serverless function
+// Vercel Serverless
 export default function handler(req, res) {
   return app(req, res);
 }
