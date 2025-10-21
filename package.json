@@ -10,9 +10,11 @@
   "dependencies": {
     "@google/generative-ai": "^0.4.0",
     "express": "^4.19.0",
+    "framer-motion": "^12.23.24",
     "next": "^14.2.33",
     "node-telegram-bot-api": "^0.61.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-tsparticles": "^2.12.2"
   }
 }

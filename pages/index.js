@@ -1,43 +1,78 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 export default function Home() {
-  const botLink = "http://t.me/MrMohsenAI_bot"; // رابط البوت
+  const botLink = "https://t.me/MrMohsenAI_bot"; // رابط البوت
 
   return (
-    <div style={{
-      minHeight: "100vh",
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "center",
-      alignItems: "center",
-      backgroundColor: "#f5f6fa",
-      fontFamily: "Arial, sans-serif",
-      padding: "2rem"
-    }}>
-      <h1 style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>
+    <div
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        background: "linear-gradient(135deg, #ffffffff, #b0e0d6ff)",
+        fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+        padding: "2rem",
+        color: "#002064ff",
+        textAlign: "center",
+      }}
+    >
+      <motion.h1
+        initial={{ y: -50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 1 }}
+        style={{
+          fontSize: "3rem",
+          marginBottom: "1rem",
+          textShadow: "2px 2px 8px rgba(0,0,0,0.3)",
+        }}
+      >
         أهلاً بيك في بوت مستر محسن AI
-      </h1>
-      <p style={{ fontSize: "1.2rem", marginBottom: "2rem", textAlign: "center" }}>
-        ابعت أي سؤال في الدراسات الاجتماعية والـ بوت هيرد عليك بطريقة سهلة ومبسطة 💪
-      </p>
-      <a
+      </motion.h1>
+
+      <motion.p
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 1, delay: 0.3 }}
+        style={{
+          fontSize: "1.3rem",
+          marginBottom: "2rem",
+          maxWidth: "550px",
+          lineHeight: "1.6",
+        }}
+      >
+        ابعت أي سؤال في الدراسات الاجتماعية والـ بوت هيرد عليك بطريقة سهلة
+        ومبسطة 💪
+      </motion.p>
+
+      <motion.a
         href={botLink}
         target="_blank"
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.6 }}
+        whileHover={{
+          scale: 1.05,
+          backgroundColor: "#2bc6ffff",
+          boxShadow: "0px 8px 20px rgba(0,0,0,0.3)",
+        }}
+        whileTap={{ scale: 0.95 }}
         style={{
-          padding: "1rem 2rem",
+          padding: "1rem 2.5rem",
           backgroundColor: "#0088cc",
           color: "#fff",
-          borderRadius: "8px",
+          borderRadius: "12px",
           fontWeight: "bold",
           textDecoration: "none",
-          fontSize: "1.1rem",
-          transition: "all 0.2s ease-in-out"
+          fontSize: "1.2rem",
+          cursor: "pointer",
+          boxShadow: "0px 4px 12px rgba(0,0,0,0.2)",
         }}
-        onMouseOver={(e) => e.currentTarget.style.backgroundColor = "#0077b6"}
-        onMouseOut={(e) => e.currentTarget.style.backgroundColor = "#0088cc"}
       >
         افتح البوت على Telegram
-      </a>
+      </motion.a>
     </div>
   );
 }
